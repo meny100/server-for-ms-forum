@@ -5,7 +5,6 @@ const posts = require('./routes/posts');
 const express = require ('express');
 const serverless = require ('serverless-http');
 const cors = require("cors");
-const router = express.Router();
 
 const app = express();
 
@@ -32,7 +31,6 @@ db.once("open", function () {
 app.use(cors());
 app.use(express.json());
 
-app.use('/.netlify/functions/api', router);
 app.use('/.netlify/functions/api/users', users);
 app.use('/.netlify/functions/api/signin', signin);
 app.use('/.netlify/functions/api/posts', posts);
